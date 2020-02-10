@@ -13,6 +13,7 @@ public class TesteVariaveis {
 			offset = 20;
 			base = 10;
 		}
+		//não compila porque as variaveis locais não foram estanciadas
 		return coupon* offset*base*value/100;
 	}
 	public static void main(String[] args) {
