@@ -17,6 +17,8 @@ public class CastArray {
 		cast.getOrdemArray();
 		cast.getOrdemArray2();
 		cast.getOrdemArray3();
+		
+		cast.sum();
 	}
 	
 	public void testeArrayComPolimorfismo(){
@@ -120,6 +122,34 @@ public class CastArray {
 			
 		}
 
+	}
+	
+	public void sum(){
+		int sum =0;
+		/*
+		 * Vai printar 0, porque na condicao (sum > 20) sum é menor que 20
+		 */
+		for(int i = 0, j=10; sum > 20; i++, --j){
+			sum = sum+ i +j;
+		}
+		System.out.println("Sum ="+ sum);
+		sum =0;
+		/*
+		 * Antes da condicao (++sum >0) sum é incrementado
+		 */
+		for(int i = 0, j=10; ++sum >0 && sum<2; i++, --j){
+			sum = sum+ i +j;
+		}
+		sum =0;
+		for(int i = 0, j=10; ++sum >0 && ++sum<2; i++, --j){
+			sum = sum+ i +j;
+		}
+		System.out.println("Sum ="+ sum);
+		sum =0;
+		for(int i = 0, j=10; sum++ <1; i++, --j){
+			sum = sum+ i +j;
+		}
+		System.out.println("Sum ="+ sum);
 	}
 	class Prova{
 		
