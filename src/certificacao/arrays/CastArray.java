@@ -1,5 +1,7 @@
 package certificacao.arrays;
 
+import java.util.ArrayList;
+
 /*
  * Elementos de matrizes de tipos primitivos são inicializados com o seu valor padrão ( ou seja, 0 para tipos inerais, 0,0 float/double e false para booleano. Elementos de matrizes de tipos não primitivos são inicializados como nulos
  * Arrays são passados por referencia. Tanto eles sendo dos tipos primitivos ou de objetos
@@ -19,8 +21,57 @@ public class CastArray {
 		cast.getOrdemArray3();
 		
 		cast.sum();
+		//cast.tryNegativeArraySizeExceptionWhenRun();
+		cast.testeArrayList();
+		cast.getExemploDeInicializacaoDeArrays();
+		cast.getExemploDeCastParaArray();
+		cast.getExemploLabelFor();
+		
 	}
 	
+	private void getExemploLabelFor() {
+		int [] numbers = {1,2,3,4,5};
+		
+		externo:
+		for(int i=0; i<5;i++) {
+			interno:
+				for(int j =0; j<5; j++) {
+					if(j==3) {
+						System.out.println("quebrou o laço externo");
+						break externo;
+					}
+					if(j<3) {
+						System.out.println("proxima interacao");
+						continue interno;
+					}
+				}
+		}
+		
+	}
+
+	private void getExemploDeCastParaArray() {
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("teste");
+		System.out.println(arr.size());
+		Object [] objects = arr.toArray();
+		String[] strings = arr.toArray(new String[arr.size()]);
+		
+	}
+
+	private void getExemploDeInicializacaoDeArrays() {
+		int [] numbers;
+		numbers = new int[] {1,2,3};
+		//quando inicializamos um array de objtos, podemos inicializar com valores null's
+		Prova provas[];
+		provas = new Prova[] {new Prova(), new ProvaPratica(), null};
+		
+		int []number2 = {1,2,3};
+		
+		Prova provas2[] = {new Prova(), new ProvaPratica(), null};
+		
+		
+	}
+
 	public void testeArrayComPolimorfismo(){
 		/*
 		 * Caso a classe Prova seja abstrata, devido ao polimorfismo é possível adicionar filhas de Prova nesse array: o polimorfismo funciona normalamente, portanto funciona igualmente para interfaces
@@ -151,6 +202,28 @@ public class CastArray {
 		}
 		System.out.println("Sum ="+ sum);
 	}
+	
+	public void testeArrayList() {
+		ArrayList<String> arr = new ArrayList<String>();
+		arr.add("java");
+		arr.add("java");
+		arr.add("cetificacao");
+		
+		System.out.println("possui a palavra java no array: "+arr.contains("java"));
+		arr.remove("java");
+		System.out.println("possui a palavra java no array: "+arr.contains("java"));
+		arr.remove("java");
+		System.out.println("possui a palavra java no array: "+arr.contains("java"));
+		
+	}
+	
+	/*
+	 * Ao tentarmos criar um array com tamanho negativo, ele vai compilar mas ira ser lançado a exception NegativeArraySizeException quando executar, segue exempo
+	 */
+	public void tryNegativeArraySizeExceptionWhenRun() {
+		int [] number = new int[-1];
+	}
+	
 	class Prova{
 		
 	}
